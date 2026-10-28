@@ -1,0 +1,12 @@
+server.port: ${SERVER_PORT:8058}
+spring.application.name: EBANK-CHATBOT
+spring.cloud.config.enabled: false
+spring.ai.openai.api-key: ${OPENAI_API_KEY:}
+spring.ai.openai.chat.options.model: ${OPENAI_MODEL:gpt-4o-mini}
+spring.ai.mcp.client.name: ebank-chatbot
+spring.ai.mcp.client.version: 1.0.0
+spring.ai.mcp.client.type: SYNC
+spring.ai.mcp.client.request-timeout: 30s
+spring.ai.mcp.client.streamable-http.connections.customer.url: ${CUSTOMER_MCP_URL:http://localhost:8056}
+spring.ai.mcp.client.streamable-http.connections.ebank.url: ${EBANK_MCP_URL:http://localhost:8057}
+eureka.client.service-url.defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}
