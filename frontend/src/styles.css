@@ -1,0 +1,6 @@
+body { background: #f4f7fb; color: #1c2738; }
+.navbar-brand { letter-spacing: .04em; }
+.app-shell { min-height: calc(100vh - 56px); }
+.card { border: 0; box-shadow: 0 8px 28px #1e3a5f10; }
+.chat-window { min-height: 360px; max-height: 55vh; overflow-y: auto; }
+.chat-message { white-space: pre-wrap; max-width: 85%; }
