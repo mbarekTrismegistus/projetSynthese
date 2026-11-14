@@ -1,6 +1,8 @@
 package ma.enset.chatbot.config;
 
-import ma.enset.chatbot.agent.EBankAgent;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.stereotype.Component;
@@ -12,12 +14,13 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.meta.generics.TelegramClient;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+import ma.enset.chatbot.agent.EBankAgent;
 
 @Component
 @ConditionalOnExpression("'${TELEGRAM_BOT_TOKEN:}' != ''")
 public class TelegramBot implements SpringLongPollingBot, LongPollingSingleThreadUpdateConsumer {
+
     private static final Logger LOG = Logger.getLogger(TelegramBot.class.getName());
     private final String token;
     private final TelegramClient telegram;
@@ -29,10 +32,18 @@ public class TelegramBot implements SpringLongPollingBot, LongPollingSingleThrea
         this.agent = agent;
     }
 
-    @Override public String getBotToken() { return token; }
-    @Override public LongPollingUpdateConsumer getUpdatesConsumer() { return this; }
+    @Override
+    public String getBotToken() {
+        return token;
+    }
 
-    @Override public void consume(Update update) {
+    @Override
+    public LongPollingUpdateConsumer getUpdatesConsumer() {
+        return this;
+    }
+
+    @Override
+    public void consume(Update update) {
         if (update.hasMessage() && update.getMessage().hasText()) {
             long chatId = update.getMessage().getChatId();
             try {

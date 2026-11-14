@@ -1,19 +1,27 @@
 package ma.enset.customer.services;
 
-import ma.enset.customer.entities.Customer;
-import ma.enset.customer.repositories.CustomerRepository;
+import java.util.List;
+
 import org.springframework.ai.tool.annotation.Tool;
 import org.springframework.ai.tool.annotation.ToolParam;
 import org.springframework.stereotype.Service;
-import java.util.List;
+
+import ma.enset.customer.entities.Customer;
+import ma.enset.customer.repositories.CustomerRepository;
 
 @Service
 public class CustomerService {
+
     private final CustomerRepository repository;
-    public CustomerService(CustomerRepository repository) { this.repository = repository; }
+
+    public CustomerService(CustomerRepository repository) {
+        this.repository = repository;
+    }
 
     @Tool(description = "Return the list of all customers")
-    public List<Customer> getAllCustomers() { return repository.findAll(); }
+    public List<Customer> getAllCustomers() {
+        return repository.findAll();
+    }
 
     @Tool(description = "Find one customer by its identifier")
     public Customer findCustomerById(@ToolParam(description = "Customer identifier") Long id) {
