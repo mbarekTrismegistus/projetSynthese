@@ -15,4 +15,5 @@ spring.cloud.gateway.routes[1].predicates[0]: Path=/accounts/**
 spring.cloud.gateway.routes[2].id: chatbot
 spring.cloud.gateway.routes[2].uri: lb://EBANK-CHATBOT
 spring.cloud.gateway.routes[2].predicates[0]: Path=/chat/**
+eureka.instance.hostname: localhost
 eureka.client.service-url.defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}

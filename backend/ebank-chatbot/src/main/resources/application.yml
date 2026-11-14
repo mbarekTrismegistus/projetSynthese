@@ -9,4 +9,5 @@ spring.ai.mcp.client.type: SYNC
 spring.ai.mcp.client.request-timeout: 30s
 spring.ai.mcp.client.streamable-http.connections.customer.url: ${CUSTOMER_MCP_URL:http://localhost:8056}
 spring.ai.mcp.client.streamable-http.connections.ebank.url: ${EBANK_MCP_URL:http://localhost:8057}
+eureka.instance.hostname: localhost
 eureka.client.service-url.defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}
