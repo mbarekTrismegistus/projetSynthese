@@ -1,0 +1,16 @@
+{
+  "info": { "name": "eBank project", "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json" },
+  "item": [
+    { "name": "Customers", "item": [
+      { "name": "List customers", "request": { "method": "GET", "url": "http://localhost:9999/customers" } },
+      { "name": "Find customer 1", "request": { "method": "GET", "url": "http://localhost:9999/customers/1" } },
+      { "name": "Create customer", "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"name\": \"Sara\",\n  \"email\": \"sara@example.com\"\n}" }, "url": "http://localhost:9999/customers" } }
+    ] },
+    { "name": "Bank accounts", "item": [
+      { "name": "List accounts", "request": { "method": "GET", "url": "http://localhost:9999/accounts" } },
+      { "name": "Accounts for customer 1", "request": { "method": "GET", "url": "http://localhost:9999/accounts/customer/1" } },
+      { "name": "Create account", "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"balance\": 4000,\n  \"type\": \"current account\",\n  \"customerId\": 1\n}" }, "url": "http://localhost:9999/accounts" } }
+    ] },
+    { "name": "Chatbot", "request": { "method": "GET", "url": "http://localhost:9999/chat?query=Liste%20des%20clients" } }
+  ]
+}
